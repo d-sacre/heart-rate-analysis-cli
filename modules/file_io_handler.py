@@ -25,8 +25,8 @@ def loadFile(FILE, fileType):
 
     return _rawData
 
-def loadSettingsJSON():
-    with open('settings.json') as _json_file:
+def loadSettingsJSON(FILE):
+    with open(FILE) as _json_file:
         _data = json.load(_json_file)
     
     return _data

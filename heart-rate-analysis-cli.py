@@ -13,26 +13,11 @@ def module_from_file(module_name, file_path):
 
 # Loading of non-standard modules
 clio = module_from_file("commandline_io", "./modules/commandline_io.py")
-fio = module_from_file("file-io-handler", "./modules/file-io-handler.py")
+fio = module_from_file("file_io_handler", "./modules/file_io_handler.py")
 parsing = module_from_file("data_parsing", "./modules/data_parsing.py")
 convert = module_from_file("convert", "./modules/convert.py")
-analysis = module_from_file("data-analysis", "./modules/data-analysis.py")
+analysis = module_from_file("data_analysis", "./modules/data_analysis.py")
 plot = module_from_file("plotter_matplotlib", "./modules/plotter_matplotlib.py")
-
-# settings = {
-#     "import": 
-#     {
-#         # "filepath": "test-data_withings-style.csv",
-#         "filepath": "/home/mane/projects/withings/2022-01-12/raw_hr_hr.csv",
-#         # "filepath": "/home/mane/projects/withings/2022-07-10/raw_hr_hr.csv",
-#         "datatype": "csv",
-#         "dataformat": "withings"
-#     },
-#     "export":
-#     {
-#         "directory": "/home/mane/cli-test/"
-#     }
-# }
 
 # Code execution
 if __name__ == "__main__":
@@ -41,7 +26,7 @@ if __name__ == "__main__":
     # Otherwise exit with error message
     if sys.version_info >= (3,10,0): 
 
-        settings = fio.loadSettingsJSON()
+        settings = fio.loadSettingsJSON("./settings/analysis_settings.json")
         settings = clio.readCommandlineArguments(sys.argv[1:], settings)
 
         # Loading, parsing and pre-processing of data
